@@ -40,6 +40,31 @@
   gap: 1.4rem;
 }
 
+.about-toggle {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.about-toggle-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid transparent;
+  padding: 0 0 0.5rem;
+  cursor: pointer;
+}
+
+.about-toggle-btn.active {
+  color: var(--text);
+  border-bottom-color: var(--gold);
+}
+
 .about-text p {
   font-size: 0.95rem;
   font-weight: 300;
