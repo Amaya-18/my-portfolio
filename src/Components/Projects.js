@@ -3,9 +3,15 @@ import './Projects.css';
 const projects = [
   {
     name: 'UNIFLOW',
-    meta: 'Full-stack · In progress',
-    desc: 'Centralized platform for IIT students — real-time updates on class cancellations, deadlines, and announcements.',
+    meta: 'Full-stack · Group project',
+    desc: 'Centralized platform for IIT students — real-time updates on class cancellations, deadlines, and announcements. Built as a group project.',
     tags: ['React.js', 'Node.js', 'PostgreSQL', 'REST API'],
+  },
+  {
+    name: 'Linked',
+    meta: 'Full-stack · In development',
+    desc: 'A blue-collar job marketplace for Sri Lanka, connecting non-professional workers with employers in Colombo.',
+    tags: ['React', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL'],
   },
   {
     name: 'Traffic Vehicle Data System',
