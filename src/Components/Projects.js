@@ -1,86 +1,86 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import './Projects.css';
 
-function Projects() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
+const projects = [
+  {
+    name: 'UNIFLOW',
+    meta: 'Full-stack · In progress',
+    desc: 'A centralized platform delivering real-time updates on class cancellations, deadlines, and announcements for IIT students.',
+    tags: ['React.js', 'Node.js', 'PostgreSQL', 'REST API'],
+  },
+  {
+    name: 'Traffic Vehicle Data System',
+    meta: 'Desktop app',
+    desc: 'Vehicle data management system with SQL-backed storage, OOP architecture, and built-in reporting and visualization tools.',
+    tags: ['Python', 'Tkinter', 'SQL', 'OOP'],
+  },
+  {
+    name: 'Climate Action Web App',
+    meta: 'Frontend',
+    desc: 'Interactive volunteer page promoting environmental initiatives. Focused on responsive design and accessibility.',
+    tags: ['HTML', 'CSS'],
+  },
+  {
+    name: 'iMobile Business Website',
+    meta: 'Frontend',
+    desc: 'Responsive business website with a structured layout and clean navigation, built for usability and clarity.',
+    tags: ['HTML', 'CSS'],
+  },
+];
 
-  const projects = [
-    {
-      id: 1,
-      title: "iMobile E-Commerce Platform",
-      description: "A fully responsive e-commerce website featuring dynamic product listings, shopping cart functionality, and smooth checkout process.",
-      tags: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-    },
-    {
-      id: 2,
-      title: "Weather Dashboard App",
-      description: "Real-time weather application with location search, 5-day forecast, and dynamic UI that changes based on weather conditions.",
-      tags: ["JavaScript", "API Integration", "CSS Animation"],
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
-    },
-    {
-      id: 3,
-      title: "Portfolio Website",
-      description: "A modern, responsive portfolio website showcasing projects and skills with smooth animations and interactive elements.",
-      tags: ["React", "Framer Motion", "CSS", "Responsive"],
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
-    }
-  ];
-
+export default function Projects() {
   return (
-    <section id="portfolio" className="projects-section" ref={ref}>
-      <div className="projects-background">
-        <div className="projects-orb orb1"></div>
-        <div className="projects-orb orb2"></div>
+    <section id="projects" className="projects">
+      <div className="projects-header">
+        <span className="section-tag">Projects</span>
+        <span className="section-rule" />
       </div>
 
-      <div className="container">
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="section-label">MY WORK</span>
-          <h2 className="section-title-new">Featured Projects</h2>
-        </motion.div>
-
-        <div className="projects-grid-new">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className="project-card-new"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              <div className="project-image-container" style={{ background: project.gradient }}>
-                <div className="project-overlay-new">
-                  <span className="view-btn">View Project →</span>
-                </div>
-              </div>
-
-              <div className="project-info-new">
-                <h3 className="project-title-new">{project.title}</h3>
-                <p className="project-desc-new">{project.description}</p>
-                
-                <div className="project-tags-new">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="project-tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+      {/* Featured */}
+      <div className="projects-featured">
+        <div className="featured-label">Research project</div>
+        <div className="featured-inner">
+          <div>
+            <h3 className="featured-title">Bredix</h3>
+            <p className="featured-desc">
+              A smart livestock reproductive monitoring system designed to replace
+              paper-based records on Sri Lankan dairy farms. Research stage —
+              exploring IoT sensors that detect cattle heat cycles automatically,
+              an AI model that predicts optimal insemination timing, and a mobile
+              app for farmers to track everything in one place.
+            </p>
+            <div className="project-tags">
+              <span className="project-tag">IoT</span>
+              <span className="project-tag">AI / ML</span>
+              <span className="project-tag">Mobile Design</span>
+              <span className="project-tag">Research</span>
+            </div>
+          </div>
+          <p className="featured-note">
+            "Most livestock monitoring in Sri Lanka is still done with pen and
+            paper. Bredix is my attempt to change that — starting with the
+            reproductive cycle, which is the most time-critical part of dairy
+            farm management."
+          </p>
         </div>
+      </div>
+
+      {/* List */}
+      <div className="projects-list">
+        {projects.map((p) => (
+          <div className="project-row" key={p.name}>
+            <div className="project-row-meta">{p.meta}</div>
+            <div>
+              <div className="project-row-title">{p.name}</div>
+              <div className="project-row-desc">{p.desc}</div>
+            </div>
+            <div className="project-row-tags">
+              {p.tags.map((t) => (
+                <span className="project-tag" key={t}>{t}</span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
-
-export default Projects;
