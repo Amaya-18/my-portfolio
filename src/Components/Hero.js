@@ -5,17 +5,15 @@ export default function Hero() {
   return (
     <section id="hero" className="hero">
       <div className="hero-left">
-        <p className="hero-eyebrow">Software Engineering Undergraduate · IIT / Westminster</p>
+        <p className="hero-eyebrow">
+          Software Engineering Undergraduate · IIT / Westminster
+        </p>
 
-        <h1 className="hero-name">
-          Amaya<br />
-          Chathuma<em>li.</em>
-        </h1>
+        <h1 className="hero-name">Amaya Chathumali.</h1>
 
         <p className="hero-tagline">
-          I build real things — from university platforms to AI-driven livestock systems.
-          Currently in second year, actively looking for an internship where I can
-          contribute and grow.
+          I build real things — from university platforms to AI-driven livestock
+          systems. Currently in second year, actively looking for an internship.
         </p>
 
         <div className="hero-actions">
@@ -31,10 +29,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-right">
-        <div className="hero-photo-wrap">
-          <img src={amayaPhoto} alt="Amaya Chathumali" />
-          <span className="hero-photo-label">Nainamadama, Sri Lanka</span>
-        </div>
+        <img src={amayaPhoto} alt="Amaya Chathumali" className="hero-photo" />
       </div>
     </section>
   );

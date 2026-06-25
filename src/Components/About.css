@@ -5,7 +5,7 @@
   border-bottom: 1px solid var(--line);
 }
 
-.about-header {
+.section-header {
   display: flex;
   align-items: baseline;
   gap: 2rem;
@@ -27,16 +27,6 @@
   background: var(--line);
 }
 
-.section-heading {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  letter-spacing: -0.8px;
-  line-height: 1.15;
-  color: var(--text);
-}
-
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -47,7 +37,7 @@
 .about-text {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.4rem;
 }
 
 .about-text p {
@@ -57,25 +47,16 @@
   line-height: 1.9;
 }
 
-.about-text p strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
 .about-right {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-/* Stats row */
 .about-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
   border: 1px solid var(--line);
-  border-radius: 4px;
-  overflow: hidden;
 }
 
 .stat {
@@ -99,7 +80,7 @@
   font-size: 2rem;
   color: var(--gold);
   line-height: 1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
 }
 
 .stat-label {
@@ -108,8 +89,8 @@
   line-height: 1.4;
 }
 
-/* Certifications */
-.about-certs h4 {
+.about-certs h4,
+.about-skills h4 {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -143,15 +124,6 @@
   font-weight: 300;
 }
 
-/* Skills */
-.about-skills h4 {
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1rem;
-}
-
 .skills-row {
   display: flex;
   flex-wrap: wrap;
@@ -164,13 +136,7 @@
   border: 1px solid var(--line);
   padding: 0.3rem 0.75rem;
   border-radius: 2px;
-  background: var(--bg-2);
-  transition: border-color 0.15s, color 0.15s;
-}
-
-.skill-chip:hover {
-  border-color: rgba(200, 169, 110, 0.3);
-  color: var(--text);
+  background: transparent;
 }
 
 @media (max-width: 900px) {

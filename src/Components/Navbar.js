@@ -3,9 +3,7 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        Amaya<span>.</span>
-      </div>
+      <a href="#" className="navbar-logo">Amaya.</a>
 
       <ul className="navbar-links">
         <li><a href="#about">About</a></li>

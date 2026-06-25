@@ -3,7 +3,7 @@ import './Contact.css';
 export default function Contact() {
   return (
     <section id="contact" className="contact">
-      <div className="contact-header">
+      <div className="section-header">
         <span className="section-tag">Contact</span>
         <span className="section-rule" />
       </div>
@@ -13,10 +13,6 @@ export default function Contact() {
           <h2 className="contact-heading">
             Let's build something <em>real.</em>
           </h2>
-          <p className="contact-sub">
-            I'm open to internship opportunities, collaborations, and conversations
-            about interesting problems. I reply within 24 hours.
-          </p>
 
           <div className="contact-details">
             <a href="mailto:amayachathu111@gmail.com" className="contact-item">
@@ -29,23 +25,23 @@ export default function Contact() {
             </a>
             <a href="https://www.linkedin.com/in/amaya-chathumali" target="_blank" rel="noreferrer" className="contact-item">
               <span className="contact-item-label">LinkedIn</span>
-              Amaya Chathumali
+              linkedin.com/in/amaya-chathumali
             </a>
-            <span className="contact-item">
+            <a href="tel:+94742871308" className="contact-item">
               <span className="contact-item-label">Phone</span>
               +94 742 871 308
-            </span>
+            </a>
           </div>
         </div>
 
         <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
           <div className="form-row">
-            <input type="text" placeholder="Your name" required />
-            <input type="email" placeholder="Your email" required />
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
           </div>
-          <input type="text" placeholder="Subject" />
-          <textarea placeholder="Tell me about the opportunity or project..." />
-          <button type="submit">Send message →</button>
+          <input type="text" name="subject" placeholder="Subject" />
+          <textarea name="message" placeholder="Your message" required />
+          <button type="submit">Send message</button>
         </form>
       </div>
 
