@@ -1,5 +1,5 @@
 import './Hero.css';
-<img src={process.env.PUBLIC_URL + '/amaya.png'} alt="Amaya Chathumali" />
+import amayaPhoto from '../assets/amaya.png';
 
 export default function Hero() {
   return (
