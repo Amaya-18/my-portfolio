@@ -1,11 +1,15 @@
-import './Projects.css';
-
 const projects = [
   {
     name: 'UNIFLOW',
     meta: 'Full-stack · Group project',
     desc: 'Centralized platform for IIT students — real-time updates on class cancellations, deadlines, and announcements. Built as a group project.',
     tags: ['React.js', 'Node.js', 'PostgreSQL', 'REST API'],
+  },
+  {
+    name: 'Ceylon Unbound',
+    meta: 'Frontend · Freelance',
+    desc: 'A website built for a Sri Lankan travel and experiences brand, showcasing destinations and cultural stories with a clean, modern design.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
   },
   {
     name: 'Linked',
@@ -32,57 +36,3 @@ const projects = [
     tags: ['HTML', 'CSS'],
   },
 ];
-
-export default function Projects() {
-  return (
-    <section id="projects" className="projects">
-      <div className="section-header">
-        <span className="section-tag">Projects</span>
-        <span className="section-rule" />
-      </div>
-
-      <div className="projects-featured">
-        <div className="featured-label">Research project</div>
-        <div className="featured-inner">
-          <div className="featured-left">
-            <h3 className="featured-title">Bredix</h3>
-            <p className="featured-desc">
-              A smart livestock reproductive monitoring system designed to replace
-              paper-based records on Sri Lankan dairy farms. IoT sensors detect
-              cattle heat cycles automatically, an AI model predicts optimal
-              insemination timing, and a mobile app lets farmers track
-              everything in one place.
-            </p>
-            <div className="project-tags">
-              <span className="project-tag">IoT</span>
-              <span className="project-tag">AI/ML</span>
-              <span className="project-tag">Mobile Design</span>
-              <span className="project-tag">Research</span>
-            </div>
-          </div>
-          <blockquote className="featured-quote">
-            Most livestock monitoring in Sri Lanka is still done with pen and
-            paper. Bredix is my attempt to change that.
-          </blockquote>
-        </div>
-      </div>
-
-      <div className="projects-list">
-        {projects.map((p) => (
-          <div className="project-row" key={p.name}>
-            <div className="project-row-meta">{p.meta}</div>
-            <div className="project-row-center">
-              <div className="project-row-title">{p.name}</div>
-              <div className="project-row-desc">{p.desc}</div>
-            </div>
-            <div className="project-row-tags">
-              {p.tags.map((t) => (
-                <span className="project-tag" key={t}>{t}</span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
