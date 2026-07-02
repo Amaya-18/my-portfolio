@@ -1,3 +1,5 @@
+import './Projects.css';
+
 const projects = [
   {
     name: 'UNIFLOW',
@@ -36,3 +38,58 @@ const projects = [
     tags: ['HTML', 'CSS'],
   },
 ];
+
+export default function Projects() {
+  return (
+    <section id="projects" className="projects">
+      <div className="section-header">
+        <span className="section-tag">Projects</span>
+        <span className="section-rule" />
+      </div>
+
+      <div className="projects-featured">
+        <div className="featured-label">Selected work</div>
+        <div className="featured-inner">
+          <div>
+            <h3 className="featured-title">UNIFLOW</h3>
+            <p className="featured-desc">
+              Centralized platform for IIT students with real-time class updates,
+              deadlines, and announcements.
+            </p>
+            <div className="project-tags">
+              {projects[0].tags.map((tag) => (
+                <span className="project-tag" key={tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <p className="featured-quote">
+            Built to replace scattered WhatsApp messages and reduce missed updates
+            for students.
+          </p>
+        </div>
+      </div>
+
+      <div className="projects-list">
+        {projects.slice(1).map((project) => (
+          <article className="project-row" key={project.name}>
+            <div className="project-row-meta">{project.meta}</div>
+            <div>
+              <h4 className="project-row-title">{project.name}</h4>
+              <p className="project-row-desc">{project.desc}</p>
+            </div>
+            <div className="project-row-tags">
+              {project.tags.map((tag) => (
+                <span className="project-tag" key={tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
