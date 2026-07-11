@@ -10,6 +10,11 @@ export default function Navbar() {
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="/Amaya-Chathumali-CV.pdf" download="Amaya-Chathumali-CV.pdf">
+            CV
+          </a>
+        </li>
       </ul>
 
       <a href="mailto:amayachathu111@gmail.com" className="navbar-cta">

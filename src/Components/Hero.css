@@ -76,6 +76,18 @@
   letter-spacing: 0.02em;
 }
 
+.btn-outline {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gold);
+  border: 1px solid rgba(200, 169, 110, 0.35);
+  padding: 0.75rem 1.8rem;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+}
+
 .btn-ghost {
   font-size: 0.82rem;
   font-weight: 400;

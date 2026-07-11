@@ -31,6 +31,14 @@ export default function Contact() {
               <span className="contact-item-label">Phone</span>
               +94 742 871 308
             </a>
+            <a
+              href="/Amaya-Chathumali-CV.pdf"
+              download="Amaya-Chathumali-CV.pdf"
+              className="contact-item"
+            >
+              <span className="contact-item-label">Resume</span>
+              Download my CV
+            </a>
           </div>
         </div>
 
