@@ -11,7 +11,7 @@ export default function Navbar() {
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
-          <a href="/Amaya-Chathumali-CV.pdf" download="Amaya-Chathumali-CV.pdf">
+          <a href="/Amaya-Chathumali-CV.pdf" target="_blank" rel="noreferrer">
             CV
           </a>
         </li>

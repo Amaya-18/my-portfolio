@@ -33,11 +33,12 @@ export default function Contact() {
             </a>
             <a
               href="/Amaya-Chathumali-CV.pdf"
-              download="Amaya-Chathumali-CV.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="contact-item"
             >
               <span className="contact-item-label">Resume</span>
-              Download my CV
+              View my CV
             </a>
           </div>
         </div>

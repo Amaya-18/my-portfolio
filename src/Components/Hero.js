@@ -20,10 +20,11 @@ export default function Hero() {
           <a href="#projects" className="btn-primary">View my work</a>
           <a
             href="/Amaya-Chathumali-CV.pdf"
-            download="Amaya-Chathumali-CV.pdf"
+            target="_blank"
+            rel="noreferrer"
             className="btn-outline"
           >
-            Download CV
+            View CV
           </a>
           <a href="#contact" className="btn-ghost">Let's talk →</a>
         </div>
