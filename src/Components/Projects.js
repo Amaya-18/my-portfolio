@@ -14,8 +14,8 @@ const projects = [
     desc: 'A Playwright-based QA automation tool that detects Sinhala/Tamil UI localization bugs using DOM injection and pixel-diff comparison. Validated against a live production site (Ceylon Unbound), producing a real bug report.',
     tags: ['Playwright', 'JavaScript', 'Node.js'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/Amaya-18' },
-      { label: 'Report', href: 'https://example.com/akshara-lens' },
+      { label: 'GitHub', href: 'https://github.com/Amaya-18/AksharaLens' },
+      { label: 'Report', href: 'https://github.com/Amaya-18/AksharaLens' },
     ],
   },
   {
@@ -24,8 +24,8 @@ const projects = [
     desc: 'A full-stack security scanner that audits Spring Boot pom.xml files for known CVEs via the OSV.dev API and flags common Spring Boot misconfigurations. Features a React + Vite dashboard with a radial risk-score gauge, fully containerized with Docker.',
     tags: ['Spring Boot', 'Java', 'React', 'Vite', 'Docker'],
     links: [
-      { label: 'GitHub', href: 'https://github.com/Amaya-18' },
-      { label: 'Demo', href: 'https://example.com/bootshield' },
+      { label: 'GitHub', href: 'https://github.com/Amaya-18/BootShield' },
+      { label: 'Demo', href: 'https://github.com/Amaya-18/BootShield' },
     ],
   },
   {
@@ -33,14 +33,14 @@ const projects = [
     meta: 'Frontend · Freelance',
     desc: 'A website built for a Sri Lankan travel and experiences brand, showcasing destinations and cultural stories with a clean, modern design.',
     tags: ['HTML', 'CSS', 'JavaScript'],
-    links: [],
+    links: [{ label: 'Deploy', href: 'https://ceylon-zeta.vercel.app/' }],
   },
   {
     name: 'Linked',
     meta: 'Full-stack · In development',
     desc: 'A blue-collar job marketplace for Sri Lanka, connecting non-professional workers with employers in Colombo.',
     tags: ['React', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL'],
-    links: [],
+    links: [{ label: 'GitHub', href: 'https://github.com/Amaya-18/WorkLink' }],
   },
   {
     name: 'Traffic Vehicle Data System',
