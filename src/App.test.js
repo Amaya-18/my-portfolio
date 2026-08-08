@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the new projects and certifications content', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(screen.getByText(/AksharaLens/i)).toBeInTheDocument();
+  expect(screen.getByText(/BootShield/i)).toBeInTheDocument();
+  expect(screen.getByText(/Software Testing Foundations/i)).toBeInTheDocument();
+  expect(screen.getByText(/Microsoft Security Essentials/i)).toBeInTheDocument();
 });
