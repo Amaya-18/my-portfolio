@@ -1,63 +1,9 @@
+import { useState } from 'react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import './Contact.css';
 
-export default function Contact() {
-  return (
-    <section id="contact" className="contact">
-      <div className="section-header">
-        <span className="section-tag">Contact</span>
-        <span className="section-rule" />
-      </div>
-
-      <div className="contact-grid">
-        <div className="contact-left">
-          <h2 className="contact-heading">
-            Let's build something <em>real.</em>
-          </h2>
-
-          <div className="contact-details">
-            <a href="mailto:amayachathu111@gmail.com" className="contact-item">
-              <span className="contact-item-label">Email</span>
-              amayachathu111@gmail.com
-            </a>
-            <a href="https://github.com/Amaya-18" target="_blank" rel="noreferrer" className="contact-item">
-              <span className="contact-item-label">GitHub</span>
-              github.com/Amaya-18
-            </a>
-            <a href="https://www.linkedin.com/in/amaya-chathumali" target="_blank" rel="noreferrer" className="contact-item">
-              <span className="contact-item-label">LinkedIn</span>
-              linkedin.com/in/amaya-chathumali
-            </a>
-            <a href="tel:+94742871308" className="contact-item">
-              <span className="contact-item-label">Phone</span>
-              +94 742 871 308
-            </a>
-            <a
-              href="/Amaya-Chathumali-CV.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="contact-item"
-            >
-              <span className="contact-item-label">Resume</span>
-              View my CV
-            </a>
-          </div>
-        </div>
-
-        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-          <div className="form-row">
-            <input type="text" name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="Your email" required />
-          </div>
-          <input type="text" name="subject" placeholder="Subject" />
-          <textarea name="message" placeholder="Your message" required />
-          <button type="submit">Send message</button>
-        </form>
-      </div>
-
-      <div className="footer">
-        <span className="footer-copy">© 2025 · Nainamadama, Sri Lanka</span>
-        <span className="footer-name">Amaya Chathumali</span>
-      </div>
-    </section>
-  );
+export default function Contact({ data }) {
+  const [sent, setSent] = useState(false);
+  const submit = (event) => { event.preventDefault(); if (event.currentTarget.website.value) return; setSent(true); };
+  return <section id="contact" className="contact section-shell"><div className="section-header"><span className="section-tag">Contact</span><span className="section-rule" /></div><div className="contact-grid"><div className="contact-left"><p className="kicker">Have a problem worth solving?</p><h2 className="contact-heading">Let’s build something <em>real.</em></h2><p className="contact-copy">I’m open to conversations about project coordination, frontend, full-stack, and QA opportunities.</p><div className="contact-details"><a href={`mailto:${data.email}`} className="contact-item"><span>Email</span>{data.email}</a><a href={data.github} target="_blank" rel="noreferrer" className="contact-item"><span>GitHub</span>Amaya-18 <ArrowUpRight size={15} /></a><a href={data.linkedin} target="_blank" rel="noreferrer" className="contact-item"><span>LinkedIn</span>amaya-chathumali <ArrowUpRight size={15} /></a><a href={`tel:${data.phone.replaceAll(' ', '')}`} className="contact-item"><span>Phone</span>{data.phone}</a></div></div>{sent ? <div className="contact-success"><CheckCircle2 size={30} /><h3>Message received.</h3><p>Thanks for reaching out. I’ll get back to you soon.</p></div> : <form className="contact-form" action={process.env.REACT_APP_FORMSPREE_ENDPOINT || 'https://formspree.io/f/[PLACEHOLDER]'} method="POST" onSubmit={submit}><div className="form-row"><label>Name<input type="text" name="name" required /></label><label>Email<input type="email" name="email" required /></label></div><label>Subject<input type="text" name="subject" /></label><label>Message<textarea name="message" rows="6" required /></label><label className="honeypot" aria-hidden="true">Website<input type="text" name="website" tabIndex="-1" autoComplete="off" /></label><button type="submit" className="btn-primary">Send message <ArrowUpRight size={17} /></button><p className="form-note">Your message will be sent securely through Formspree.</p></form>}</div><footer className="footer"><span>© 2026 · Colombo, Sri Lanka</span><span>Amaya Chathumali</span></footer></section>;
 }

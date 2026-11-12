@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
@@ -10,7 +14,21 @@ import Skills from './Components/Skills';
 import Loader from './Components/Loader';
 import { portfolioData } from './data/portfolioData';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    const progress = document.createElement('div');
+    progress.className = 'scroll-progress';
+    document.body.appendChild(progress);
+    const update = (time) => { lenis.raf(time); };
+    gsap.ticker.add(update);
+    gsap.ticker.lagSmoothing(0);
+    const trigger = ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => { progress.style.transform = `scaleX(${self.progress})`; } });
+    return () => { trigger.kill(); gsap.ticker.remove(update); lenis.destroy(); progress.remove(); };
+  }, []);
+
   return (
     <div className="app">
       <Loader />

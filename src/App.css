@@ -3,3 +3,5 @@
 }
 
 main { overflow: clip; }
+
+.scroll-progress { background: var(--pink); height: 3px; left: 0; position: fixed; top: 0; transform: scaleX(0); transform-origin: left; width: 100%; z-index: 18; }

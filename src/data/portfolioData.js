@@ -60,7 +60,7 @@ export const portfolioData = {
     {
       name: 'UNIFLOW',
       label: '01 / Featured case study',
-      summary: 'A centralised platform for IIT students, bringing class cancellations, deadlines, and announcements into one dependable place.',
+      summary: 'A centralised platform for university students, bringing class cancellations, deadlines, and announcements into one dependable place.',
       problem: 'Student updates were scattered across channels, making important changes easy to miss.',
       role: 'Full-stack developer and project contributor',
       approach: 'Planned a focused information flow, then built the product around timely updates and a clear student-facing experience.',

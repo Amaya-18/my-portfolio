@@ -1,130 +1,24 @@
+import { useState } from 'react';
+import { ArrowUpRight, ChevronDown, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import './Projects.css';
 
-const projects = [
-  {
-    name: 'UNIFLOW',
-    meta: 'Full-stack · Group project',
-    desc: 'Centralized platform for IIT students — real-time updates on class cancellations, deadlines, and announcements. Built as a group project.',
-    tags: ['React.js', 'Node.js', 'PostgreSQL', 'REST API'],
-    links: [],
-  },
-  {
-    name: 'AksharaLens',
-    meta: 'QA automation · Playwright',
-    desc: 'A Playwright-based QA automation tool that detects Sinhala/Tamil UI localization bugs using DOM injection and pixel-diff comparison. Validated against a live production site (Ceylon Unbound), producing a real bug report.',
-    tags: ['Playwright', 'JavaScript', 'Node.js'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/Amaya-18/AksharaLens' },
-      { label: 'Report', href: 'https://github.com/Amaya-18/AksharaLens' },
-    ],
-  },
-  {
-    name: 'BootShield',
-    meta: 'Security scanner · Full-stack',
-    desc: 'A full-stack security scanner that audits Spring Boot pom.xml files for known CVEs via the OSV.dev API and flags common Spring Boot misconfigurations. Features a React + Vite dashboard with a radial risk-score gauge, fully containerized with Docker.',
-    tags: ['Spring Boot', 'Java', 'React', 'Vite', 'Docker'],
-    links: [
-      { label: 'GitHub', href: 'https://github.com/Amaya-18/BootShield' },
-      { label: 'Demo', href: 'https://github.com/Amaya-18/BootShield' },
-    ],
-  },
-  {
-    name: 'Ceylon Unbound',
-    meta: 'Frontend · Freelance',
-    desc: 'A website built for a Sri Lankan travel and experiences brand, showcasing destinations and cultural stories with a clean, modern design.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    links: [{ label: 'Deploy', href: 'https://ceylon-zeta.vercel.app/' }],
-  },
-  {
-    name: 'Linked',
-    meta: 'Full-stack · In development',
-    desc: 'A blue-collar job marketplace for Sri Lanka, connecting non-professional workers with employers in Colombo.',
-    tags: ['React', 'TypeScript', 'Node.js', 'Prisma', 'PostgreSQL'],
-    links: [{ label: 'GitHub', href: 'https://github.com/Amaya-18/WorkLink' }],
-  },
-  {
-    name: 'Traffic Vehicle Data System',
-    meta: 'Desktop app',
-    desc: 'Vehicle data management system with SQL-backed storage, OOP architecture, and built-in reporting tools.',
-    tags: ['Python', 'Tkinter', 'SQL', 'OOP'],
-    links: [],
-  },
-  {
-    name: 'Climate Action Web App',
-    meta: 'Frontend',
-    desc: 'Responsive volunteer page promoting environmental initiatives and community engagement.',
-    tags: ['HTML', 'CSS'],
-    links: [],
-  },
-  {
-    name: 'iMobile Business Website',
-    meta: 'Frontend',
-    desc: 'Responsive business website with structured layout and clean navigation.',
-    tags: ['HTML', 'CSS'],
-    links: [],
-  },
-];
-
-export default function Projects() {
+export default function Projects({ data }) {
+  const [selected, setSelected] = useState(null);
+  const [moreOpen, setMoreOpen] = useState(false);
   return (
-    <section id="projects" className="projects">
-      <div className="section-header">
-        <span className="section-tag">Projects</span>
-        <span className="section-rule" />
+    <section id="projects" className="projects section-shell">
+      <div className="section-header"><span className="section-tag">Projects</span><span className="section-rule" /></div>
+      <div className="projects-intro"><p className="kicker">Selected work</p><h2>Small teams, local problems, <em>serious craft.</em></h2></div>
+      <div className="projects-grid">
+        {data.projects.map((project, index) => <motion.article className={`project-card${index === 0 ? ' project-card-large' : ''}`} key={project.name} whileHover={{ y: -7 }} transition={{ duration: .25 }} onClick={() => setSelected(project)} tabIndex="0" onKeyDown={(event) => event.key === 'Enter' && setSelected(project)}>
+          <div className="project-card-top"><span>{project.label}</span><ArrowUpRight size={19} /></div><h3>{project.name}</h3><p>{project.summary}</p><div className="project-tags">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div><button type="button" className="project-expand">Read case study <ArrowUpRight size={16} /></button>
+        </motion.article>)}
       </div>
-
-      <div className="projects-featured">
-        <div className="featured-label">Selected work</div>
-        <div className="featured-inner">
-          <div>
-            <h3 className="featured-title">UNIFLOW</h3>
-            <p className="featured-desc">
-              Centralized platform for IIT students with real-time class updates,
-              deadlines, and announcements.
-            </p>
-            <div className="project-tags">
-              {projects[0].tags.map((tag) => (
-                <span className="project-tag" key={tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <p className="featured-quote">
-            Built to replace scattered WhatsApp messages and reduce missed updates
-            for students.
-          </p>
-        </div>
-      </div>
-
-      <div className="projects-list">
-        {projects.slice(1).map((project) => (
-          <article className="project-row" key={project.name}>
-            <div className="project-row-meta">{project.meta}</div>
-            <div>
-              <h4 className="project-row-title">{project.name}</h4>
-              <p className="project-row-desc">{project.desc}</p>
-              {project.links.length > 0 && (
-                <div className="project-links">
-                  {project.links.map((link) => (
-                    <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="project-row-tags">
-              {project.tags.map((tag) => (
-                <span className="project-tag" key={tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
+      <div className="smaller-projects">{data.smallerProjects.map((project) => <div className="smaller-project" key={project.name}><span>{project.name}</span><small>{project.detail}</small>{project.href && <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Visit ${project.name}`}><ArrowUpRight size={17} /></a>}</div>)}</div>
+      <button type="button" className="more-projects-toggle" onClick={() => setMoreOpen(!moreOpen)} aria-expanded={moreOpen}>More projects <ChevronDown className={moreOpen ? 'rotated' : ''} size={18} /></button>
+      <AnimatePresence>{moreOpen && <motion.div className="more-projects" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}>{data.moreProjects.map((project) => <span key={project}>{project}</span>)}</motion.div>}</AnimatePresence>
+      <AnimatePresence>{selected && <motion.div className="case-study-backdrop" role="presentation" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)}><motion.div className="case-study" role="dialog" aria-modal="true" aria-label={`${selected.name} case study`} initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 25 }} onClick={(event) => event.stopPropagation()}><button type="button" className="case-study-close" onClick={() => setSelected(null)} aria-label="Close case study"><X /></button><p className="kicker">{selected.label}</p><h3>{selected.name}</h3><p className="case-study-summary">{selected.summary}</p><dl><div><dt>Problem</dt><dd>{selected.problem}</dd></div><div><dt>My role</dt><dd>{selected.role}</dd></div><div><dt>Plan and build</dt><dd>{selected.approach}</dd></div><div><dt>Outcome</dt><dd>{selected.outcome}</dd></div></dl><div className="project-tags">{selected.stack.map((tag) => <span key={tag}>{tag}</span>)}</div><div className="case-study-links">{selected.links.map((link) => <a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label} <ArrowUpRight size={15} /></a>)}</div></motion.div></motion.div>}</AnimatePresence>
     </section>
   );
 }
