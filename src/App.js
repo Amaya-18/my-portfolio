@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
-    const lenis = new Lenis({ duration: 0.55, smoothWheel: true });
+    const lenis = new Lenis({ duration: 0.18, smoothWheel: true, wheelMultiplier: 0.9 });
     const progress = document.createElement('div');
     progress.className = 'scroll-progress';
     document.body.appendChild(progress);
