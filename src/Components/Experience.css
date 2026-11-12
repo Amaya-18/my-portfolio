@@ -1,0 +1,13 @@
+.experience-intro, .skills-heading { margin: 3rem 0 2.5rem; max-width: 42rem; }
+.experience-intro h2, .skills-heading h2 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 500; letter-spacing: -0.05em; line-height: .96; }
+.experience-intro em, .skills-heading em { color: var(--plum); font-style: italic; }
+.timeline { padding: 1rem 0 0 2.2rem; position: relative; }
+.timeline-line { background: var(--pink); bottom: 1rem; left: .55rem; opacity: .7; position: absolute; top: 0; width: 2px; }
+.timeline-item { display: grid; gap: .75rem 2rem; grid-template-columns: 10rem 1fr; margin-bottom: 3.5rem; position: relative; }
+.timeline-marker { align-items: center; background: var(--maroon); border: 5px solid var(--bg); border-radius: 50%; color: var(--pink); display: flex; height: 2.4rem; justify-content: center; left: -2.85rem; position: absolute; top: 0; width: 2.4rem; }
+.timeline-period, .timeline-company, .kicker { color: var(--plum); font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.timeline-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.6rem; }
+.timeline-card h3 { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; margin: .35rem 0 1rem; }
+.timeline-card ul { color: var(--ink-soft); display: grid; gap: .5rem; padding-left: 1.1rem; }
+.text-link { align-items: center; color: var(--maroon); display: inline-flex; font-weight: 700; gap: .4rem; margin-top: 1.25rem; }
+@media (max-width: 620px) { .timeline-item { display: block; padding-left: 0; } .timeline-period { margin-bottom: .75rem; } }

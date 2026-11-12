@@ -1,0 +1,17 @@
+.skills { background: var(--maroon); color: var(--bg); margin-left: -1.25rem; margin-right: -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+.skills .section-header { border-color: rgba(255,255,255,.2); }
+.skills .section-tag { color: var(--pink); }
+.skills .section-rule { background: rgba(255,255,255,.25); }
+.skills-heading em { color: var(--pink); }
+.skills-marquee { border-bottom: 1px solid rgba(255,255,255,.18); border-top: 1px solid rgba(255,255,255,.18); margin: 2rem -1.25rem 3rem; overflow: hidden; padding: 1.3rem 0; white-space: nowrap; }
+.skills-marquee-track { animation: marquee 26s linear infinite; display: inline-flex; gap: 2rem; min-width: max-content; }
+.skills-marquee span { font-family: 'Fraunces', serif; font-size: 1.35rem; }
+.skills-marquee b { color: var(--pink); font-family: sans-serif; font-size: 1rem; }
+.skill-groups { display: grid; gap: 1px; grid-template-columns: repeat(2, 1fr); }
+.skill-group { border: 1px solid rgba(255,255,255,.15); min-height: 12rem; padding: 1.4rem; }
+.skill-group svg { color: var(--pink); }
+.skill-group h3 { font-family: 'Fraunces', serif; font-size: 1.45rem; margin: 2.2rem 0 1rem; }
+.skill-group div { display: flex; flex-wrap: wrap; gap: .5rem; }
+.skill-group span { border: 1px solid rgba(255,255,255,.25); border-radius: 999px; color: #f9e9f0; font-size: .8rem; padding: .35rem .7rem; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (min-width: 760px) { .skills { margin-left: -4rem; margin-right: -4rem; padding-left: 4rem; padding-right: 4rem; } .skills-marquee { margin-left: -4rem; margin-right: -4rem; } .skill-groups { grid-template-columns: repeat(5, 1fr); } }
