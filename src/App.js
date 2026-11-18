@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
@@ -18,15 +17,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
-    const lenis = new Lenis({ duration: 0.18, smoothWheel: true, wheelMultiplier: 0.9 });
     const progress = document.createElement('div');
     progress.className = 'scroll-progress';
     document.body.appendChild(progress);
-    const update = (time) => { lenis.raf(time); };
-    gsap.ticker.add(update);
-    gsap.ticker.lagSmoothing(0);
     const trigger = ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => { progress.style.transform = `scaleX(${self.progress})`; } });
-    return () => { trigger.kill(); gsap.ticker.remove(update); lenis.destroy(); progress.remove(); };
+    return () => { trigger.kill(); progress.remove(); };
   }, []);
 
   return (
